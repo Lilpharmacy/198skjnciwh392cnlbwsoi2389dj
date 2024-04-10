@@ -21,15 +21,33 @@
         var name = document.getElementById("nameTextarea").value;
         var phoneNumber = document.getElementById("phoneNumberTextarea").value;
         var message = document.getElementById("messageTextarea").value;
+        var isValid = true;
 
-        if (name.trim() === "" || phoneNumber.trim() === "" || message.trim() === "") {
-            alert("Enter the complete details");
-            return;
+        document.getElementById("nameErrorMessage").textContent = "";
+        document.getElementById("phoneErrorMessage").textContent = "";
+        document.getElementById("messageErrorMessage").textContent = "";
+
+        if (!/^[A-Za-z .]+$/.test(name) && name.trim() !== "") {
+            document.getElementById("nameErrorMessage").textContent = "This field allows only letters, space, and dots for upper and lower case letters.";
+            isValid = false;
         }
     
-        console.log("Name:", name);
-        console.log("Phone Number:", phoneNumber);
-        console.log("Message:", message);
+        // Validate phone number
+        if (!/^\d*$/.test(phoneNumber) && phoneNumber.trim() !== "") {
+            document.getElementById("phoneErrorMessage").textContent = "This field allows only numbers.";
+            isValid = false;
+        }
+    
+        // Check for empty fields
+        if (name.trim() === "" || phoneNumber.trim() === "" || message.trim() === "") {
+            alert("Enter the complete details");
+            isValid = false;
+        }
+        if (isValid) {
+            console.log("Name:", name);
+            console.log("Phone Number:", phoneNumber);
+            console.log("Message:", message);
+        }
     });
 
 

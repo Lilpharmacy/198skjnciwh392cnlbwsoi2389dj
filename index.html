@@ -139,16 +139,18 @@
         <h2>Contact Us</h2>
         <div class="mb-3">
           <label for="nameTextarea" class="form-label">Name</label>
-          <textarea class="form-control" id="nameTextarea" rows="1"></textarea>
-          <div id="errorMessage" style="color: red;"></div>
+          <textarea class="form-control" id="nameTextarea" rows="1" maxlength="100"></textarea>
+          <div id="nameErrorMessage" style="color: red;"></div>
         </div>
         <div class="mb-3">
           <label for="phoneNumberTextarea" class="form-label">Phone number</label>
-          <textarea class="form-control" id="phoneNumberTextarea" rows="1"></textarea>
+          <textarea class="form-control" id="phoneNumberTextarea" rows="1" maxlength="10"></textarea>
+          <div id="phoneErrorMessage" style="color: red;"></div>
         </div>
         <div class="mb-3">
           <label for="messageTextarea" class="form-label">Message</label>
-          <textarea class="form-control" id="messageTextarea" rows="3"></textarea>
+          <textarea class="form-control" id="messageTextarea" rows="3" maxlength="300"></textarea>
+          <div id="messageErrorMessage" style="color: red;"></div>
         </div>
         <button type="submit" class="btn btn-outline-secondary">Send</button>
       </form>
